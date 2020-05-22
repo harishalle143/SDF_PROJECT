@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION["id"])){
+	session_destroy();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,24 +30,23 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="HOMEPAGE.php"><ul class="nav navbar-nav navbar-right"><li><b>HOSPITAL MANAGEMENT SYSTEM</b></li></ul></a>
+      <a class="navbar-brand" href="home.php"><ul class="nav navbar-nav navbar-right"><li><b>HOSPITAL MANAGEMENT SYSTEM</b></li></ul></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#myPage">HOME</a></li>
-        <li><a href="#contact">CONTACT US</a></li>
         		<li>
-			<button class="button" onclick="document.getElementById('id01').style.display='block'" style="width:80px;height:40px">LOGIN</button>
-			<button class="button" onclick="document.getElementById('id02').style.display='block'" style="width:80px;height:40px">SIGN UP</button>
+			<button class="button" onclick="document.getElementById('id01').style.display='block'" style="width:80px;height:40px">Login</button>
+			<button class="button" onclick="document.getElementById('id02').style.display='block'" style="width:80px;height:40px">Sign up</button>
 		<div id="id01" class="modal">
- 			<form class="modal-contentl animatel" method="post" action="SELECT_HOME.php">
+ 			<form class="modal-contentl animatel" method="post" action="home_login.php">
 				<div class="imgcontainerl">
 					<span onclick="document.getElementById('id01').style.display='none'" class="closel" title="Close Modal">&times;</span>
-					<img src="image/SP1.png" alt="Avatar" class="avatarl">
+					<img src="image/v1.png" alt="Avatar" class="avatarl">
 				</div>
 
 				<div class="containerl">
-					<label><b>Username</b></label>
+					<label><b>User Id</b></label>
 					<input type="text" placeholder="Enter Username" name="t1" required>
 
 					<label><b>Password</b></label>
@@ -51,29 +56,29 @@
 						<label for="sel1">Select list:</label>
 						<select class="form-control" id="sel1" name="t3" required>
 							<option>Admin</option>
-							<option>DOCTOR</option>
-							<option>PATIENT</option>
+							<option>Doctor</option>
+							<option>Patient</option>
 						</select>
 					</div>
 					<input type="submit" value="Login">
-					<input type="checkbox" checked="checked"> Remember me
+					
 				</div>
 
 				<div class="containerl" style="background-color:#f1f1f1">
 					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtnl">Cancel</button>
-					<span class="psw">Forgot <a href="#">password?</a></span>
+				
 					</div>
 			</form>
 		</div>
 		<div id="id02" class="modal">
- 			<form class="modal-contentl animatel" method="post" enctype="multipart/form-data" action="register_home.php">
+ 			<form class="modal-contentl animatel" method="post" enctype="multipart/form-data" action="register_patient.php">
 				<div class="imgcontainerl">
 					<span onclick="document.getElementById('id02').style.display='none'" class="closel" title="Close Modal">&times;</span>
-					<img src="image/SP1.png" alt="Avatar" class="avatarl">
+					<img src="image/v1.png" alt="Avatar" class="avatarl">
 				</div>
 
 				<div class="containerl">
-					<label><b>Username</b></label>
+					<label><b>User Id</b></label>
 					<input type="text" placeholder="Enter Username" name="t1" required>
 
 					<label><b>Password</b></label>
@@ -115,111 +120,12 @@
 	
 	  
 	  
-	 	  
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      
-      <span class="sr-only">Next</span>
-    </a>
-</div>
-
-<!-- Container (The Band Section) 
-<div id="band" class="container text-center">
-  <h3>HOSPITAL MANAGEMENT SYSTEM</h3>
-    <br>
-  <div class="row">
-    <div class="col-sm-3">
-       <a href="#demo" data-toggle="collapse">
-        <img src="image/CCC.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
-      </a>
-      <div id="demo" class="collapse">
-        <p>Guitarist and Lead Vocalist</p>
-        <p>Loves long walks on the beach</p>
-        <p>Member since 1988</p>
-      </div>
-    </div>
-    <div class="col-sm-3">
-      
-      <a href="#demo2" data-toggle="collapse">
-        <img src="image/EE.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
-      </a>
-      <div id="demo2" class="collapse">
-        <p>Drummer</p>
-        <p>Loves drummin'</p>
-        <p>Member since 1988</p>
-      </div>
-    </div>
-    <div class="col-sm-3">
-     
-      <a href="#demo3" data-toggle="collapse">
-        <img src="image/mec.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
-      </a>
-      <div id="demo3" class="collapse">
-        <p>Bass player</p>
-        <p>Loves math</p>
-        <p>Member since 2005</p>
-      </div>
-    </div>
-	<div class="col-sm-3">
-      
-      <a href="#demo4" data-toggle="collapse">
-        <img src="image/vvv.jpg" class="img-circle person" alt="Random Name" width="255" height="255">
-      </a>
-      <div id="demo4" class="collapse">
-        <p>Bass player</p>
-        <p>Loves math</p>
-        <p>Member since 2005</p>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- Container (Contact Section) -->
-<div id="contact" class="container">
-  <h3 class="text-center">Contact</h3>	
-  <div class="row">
-    <div class="col-md-4">
-      <p>Drop a note.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span>HOSPITAL MANAGEMENT SYSTEM,HYDERABAD,INDIA</p>
-      <p><span class="glyphicon glyphicon-phone"></span>Phone: </p>
-      <p><span class="glyphicon glyphicon-envelope"></span>Email: hospitalmanagement@gmail.com</p>
-    </div>
-    <div class="col-md-8">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        </div>
-      </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
-      <br>
-      <div class="row">
-        <div class="col-md-12 form-group">
-          <button class="btn pull-right" type="submit">Send</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
-  </div>
-</div>
-
-<!-- Add Google Maps -->
-
 <!-- Footer -->
 <footer class="text-center">
   <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a><br><br>
-  <p><a href="home.php" data-toggle="tooltip" title="HOSPITAL MANAGEMENT SYSTEM">Hospital Management System</a></p> 
+  <p><a href="home.php" data-toggle="tooltip" title="HOSPITAL MANAGEMENT SYSTEM">Hospita Management System</a></p> 
 </footer>
 
 <script>
