@@ -1,9 +1,3 @@
-<?php session_start(); ?>
-<?php include_once('check_session.php'); ?>
-<?php include_once('head.php'); ?>
-<?php include_once('header.php'); ?>
-<?php include_once('config.php'); ?>
-<?php include_once('admin_aside.php');?>
 <div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
@@ -33,15 +27,6 @@
 							<!-- using ajax ...look at this file ==> change_select.php -->
 							<select class="form-control" id="sel1" name="t1" onchange="showUser(this.value)"  required>
 							<option>--patient--</option>
-								  <?php
-									$sql = "SELECT distinct(p.pid) from pid_reg p,specialty s where p.Doctor = s.Doctor ";
-									$qury = mysqli_query($conn, $sql);
-									if(mysqli_num_rows($qury) > 0){
-										while($row = mysqli_fetch_assoc($qury)){
-											echo '<option value='.$row["pid"].'>'.$row["pid"].'</option>';
-										}	
-									}
-								  ?>
 							</select>
             				<label for="sel1">Select Doctor</label>
 							<select class="form-control" id="txtHint" name="t2" required></select>
@@ -66,57 +51,9 @@
 							</td>
                             </table>
                             </form>
-							<?php
-								if(isset($_POST["submit"])){ 
-                                    $pid = $_POST["t1"];
-                                    $doc = $_POST["t2"];
-									//$name = $_POST["name"];
-	                                $gender =$_POST["gender"];								 
-									$conf = $_POST["conf"];
-									$token = $_POST["toke"]; 
-									$timi = $_POST["tym"];
-									$address = $_POST["address"]; 
-									$std_phone = $_POST["std_phone"]; 
-									$par_phone = $_POST["par_phone"]; 
-									$gmail = $_POST["gmail"]; 
-
-								// $exist = "select * from patient where patient_name='$pid' ";	
-								// $res = mysqli_query($conn,$exist);
-								// if(mysqli_num_rows($res) > 0){
-									// while($row = mysqli_fetch_assoc($res))
-										// echo "your have already entered the details of the name: ".$row["patient_name"];
-                                // }
-                                
-                                
-                                
-                                    $sqi = "select * from pid_reg where pid='$pid' and Doctor='$doc' ";
-                                    $quri = mysqli_query($conn,$sqi);
-								if(mysqli_num_rows($quri)>0)
-								{
-                                $sqli = "insert into patient(patient_name,gender,appointmentconfirmation,token,Timings,hospital_address,std_phone,par_phone,gmail_id) values ('$pid','$gender','$conf','$token','$timi','$address','$std_phone','$par_phone','$gmail') ";
-									if(mysqli_query($conn,$sqli)){
-
-										echo "Successfully inserted";
-
-                                    }
-                                    
-								} 
-								else{
-                                    echo "inserted values are wrong";
-                                }
-									//else{
-										//echo "error occured while inserting data".mysqli_error($conn);
-								//	}
-								//}
-									} 
-							?>
-
-						
-
 					</div>
                 
 							
-							<?php echo '<h2><u><i>Patients</i></u></h2>'; ?>
                             
                             <table  id="example1" class="table table-bordered table-striped">
                             <thead>
@@ -129,32 +66,6 @@
                     </thead>
                     
                     <tbody> 
-            				<?php
-            							
-							       $sqle = 'select pid,name,Doctor,Slot from pid_reg order by slot desc' ; 
-							       
-                                   $result = mysqli_query($conn,$sqle) or die('Error, query failed'.mysqli_error($conn));
-            							if(mysqli_num_rows($result) == 0)
-            							{
-            								echo "Database is empty <br>";
-            							} 
-            							else
-            							{
-            								while(list($pid,$name,$Doctor,$Slot) = mysqli_fetch_array($result))
-            								{
-            									?>
-                                          
-            									  <tr>
-            										<th><?php echo $pid;?></th>
-            										<th> <?php echo $name;?> </a><br></th>
-            										<th><?php echo $Doctor;?></th>
-                                                    <th><?php echo $Slot;?></th>
-													
-                                            		</tr>
-            								<?php
-            								}
-            							}
-            						?>
 
                     </tbody>
                   </table>
@@ -167,38 +78,6 @@
 </div>
 <script>
  
-function showUser(str) {
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "";
-		// document.getElementById("txtHint1").innerHTML= "";
-      
-		return;
-    } else { 
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-				// document.getElementById("txtHint1").innerHTML= "";
-      
-				}
-        }
-        //xmlhttp.open("GET","getuser2.php?r="+str,true);
-        //xmlhttp.send();
-        
-		xmlhttp.open("GET","patientuser.php?q="+str,true);
-        xmlhttp.send();
-		
-   }
-
-}
-
-
 
 </script>
 
@@ -208,4 +87,3 @@ function showUser(str) {
 <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
-<?php include_once('footer.php'); ?>   
