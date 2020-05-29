@@ -1,3 +1,10 @@
+<?php session_start(); ?>
+<?php include_once('check_session.php'); ?>
+<?php include_once('head.php'); ?>
+<?php include_once('header.php'); ?>
+<?php include_once('config.php'); ?>
+<?php include_once('admin_aside.php'); ?>
+
 <div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
@@ -27,6 +34,20 @@
                             <tr><th><input class="btn btn-block btn-primary btn-lg" style="width:150px;" type="submit" value="submit"></th></tr>
 						</table>
 					</form>
+					<?php
+						if(isset($_POST["specname"]) && isset($_POST["Doctor_name"]) && isset($_POST["slot"])){
+							$sub = $_POST["specname"];
+							$Doctor_name = $_POST["Doctor_name"];
+                            $Slot = $_POST["slot"];
+							$sql = "INSERT INTO specialty(name,Doctor,Slot) VALUES ('$sub','$Doctor_name','$Slot')";
+							if(mysqli_query($conn,$sql)){
+								echo $sub."  Data inserted successfully";
+							}
+							else{
+								echo $sub."  Specialty not inserted ".mysqli_error($conn);
+							}	
+						}
+					?>	
 					</div>
 				</div>
 			</div>
@@ -37,3 +58,4 @@
     <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/app.min.js"></script>
+<?php include_once('footer.php'); ?>   

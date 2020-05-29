@@ -1,7 +1,7 @@
 <?php
 
 // Create connection
-$conn = mysqli_connect("localhost", "root", "", "hospital");
+$conn = mysqli_connect("localhost", "root", "", "consult");
 // Check connection
 
 if (!$conn) {

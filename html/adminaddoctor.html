@@ -1,13 +1,12 @@
-
 <div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
 		  <h1 style="text-align:center">
-			Book An Appointment
+			Acceptance of An Appointment
 		  </h1>
 		  <ol class="breadcrumb">
 			<li><a href="../home.php"><i class="fa fa-dashboard"></i> Home</a></li>
-			<li class="active">Book Appointment</li>
+			<li class="active">Acceptance of An Appointment</li>
 		  </ol>
 		</section>
 		<section class="content">
@@ -17,7 +16,7 @@
 			<div class="col-xs-8">
 				<div class="box"> 
 					<div class="box-header">
-						<h3 class="box-title">Details of Doctors Availabilty</h3>
+						<h3 class="box-title"></h3>
 					</div><!-- /.box-header -->
 					<div class="box-body">
 					<form class="modal-contentl animatel" method="post">
@@ -52,8 +51,9 @@
 							</td>
                             </table>
                             </form>
-													
 					</div>
+                
+							
                             
                             <table  id="example1" class="table table-bordered table-striped">
                             <thead>
@@ -66,8 +66,6 @@
                     </thead>
                     
                     <tbody> 
-            				
-                                          
 
                     </tbody>
                   </table>
@@ -80,38 +78,6 @@
 </div>
 <script>
  
-function showUser(str) {
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "";
-		// document.getElementById("txtHint1").innerHTML= "";
-      
-		return;
-    } else { 
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-				// document.getElementById("txtHint1").innerHTML= "";
-      
-				}
-        }
-        //xmlhttp.open("GET","getuser2.php?r="+str,true);
-        //xmlhttp.send();
-        
-		xmlhttp.open("GET","patientuser.php?q="+str,true);
-        xmlhttp.send();
-		
-   }
-
-}
-
-
 
 </script>
 
@@ -121,4 +87,3 @@ function showUser(str) {
 <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/app.min.js"></script>
-  

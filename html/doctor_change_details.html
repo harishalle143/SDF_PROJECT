@@ -1,0 +1,65 @@
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <ul class="sidebar-menu">
+		<li><a href="doctor.php"><i class="fa fa-circle-o text-aqua"></i> <span>Doctor</span></a></li>
+		<li><a href="doctor_change_details.php"><i class="fa fa-circle-o text-yellow"></i> <span>Reschedule Appointment</span></a></li>
+        <li><a href="invoice.php"><i class="fa fa-circle-o text-red"></i> <span>Invoice</span></a></li>
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+
+<div class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+		  <h1 style="text-align:center">
+			Appointment 
+		  </h1>
+		  <ol class="breadcrumb">
+			<li><a href="../home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li><a href="doctor.php">Doctor</a></li>
+			<li class="active">Update Appointment</li>
+		  </ol>
+		</section>
+		<section class="content">
+		<div class="row" align="center">
+			<div class="col-xs-5">
+				<div class="box">
+					<div class="box-header">
+						<h3 class="box-title">Update Appointment Details</h3>
+					</div><!-- /.box-header -->
+					<div class="box-body">
+					<form class="modal-contentl animatel" method="post">
+						<div class="containerl">
+						<div class="form-group">
+							
+                              <select class="form-control" id="sel1" name="t3" placeholder=" " required>
+								<option>--Select Name--</option>
+															</select>
+							</select>
+							<br>
+							<select class="form-control" id="sel1" name="t1" required>
+							<option>--Select option--</option>
+								  
+							</select>
+							<br>
+							<input type="text" placeholder="Enter value" name="t2" class="form-control" required>	
+							<input style="margin-top: 20px;width: 100px" class="btn btn-block btn-primary btn-lg" type="submit" value="update" name="update">
+						</div>
+						
+						</div>
+					</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		</section>
+					
+</div>
+<!-- jQuery 2.1.4 -->
+    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/app.min.js"></script>
+	

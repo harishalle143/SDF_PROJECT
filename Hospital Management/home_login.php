@@ -4,7 +4,7 @@ session_start();
 // Create connection
 
 
-$conn = mysqli_connect("localhost", "root", "", "hospital");
+$conn = mysqli_connect("localhost", "root", "", "consult");
 // Check connection
 
 if (!$conn) {
@@ -23,9 +23,9 @@ if (!$conn) {
 				$_SESSION["id"]= $rno;
 				$_SESSION["dept"]= $d;
 					if($d=="Patient")
-						echo '<script> window.location="std/student.php"; </script>';
+						echo '<script> window.location="std/patient.php"; </script>';
 					else if($d=="Doctor")		
-						echo '<script> window.location="std/emp.php";</script>';
+						echo '<script> window.location="std/doctor.php";</script>';
 					else if($d=="Admin")
 						echo '<script> window.location="std/admin.php";</script>';
 			}
