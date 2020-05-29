@@ -2,6 +2,8 @@
 <?php include_once('check_session.php'); ?>
 <?php include_once('head.php'); ?>
 <?php include_once('header.php'); ?>
+<?php include_once('config.php'); ?>
+<?php include_once('sidebar.php');?>
 <div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
@@ -32,7 +34,13 @@
 						<table id="example1" class="table table-bordered table-striped">
 							<tr><th>Gmail Id<th><input type="text" name="t1"/></th></tr>
 							<tr><th>Enter Age<th><input type="text" name="t2"/></th></tr>
-							<tr><th>Select Gender<th><input type="text" name="gender"/></th></tr>
+							<tr><th>Select Gender<th>
+                            <input type="radio" id="male" name="gender" value="male">
+                           <label for="male">Male</label>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label for="female">Female</label>
+                            <input type="radio" id="other" name="gender" value="other">
+                            <label for="other">Other</label></th></tr>
                              
 							<tr><th>Enter Phone<th><input type="text" name="t3"/></th></tr> 
 							<th>Select Address<th></th></tr>
@@ -53,14 +61,28 @@
                                     $gender = $_POST['gender'];
                                     $phone = $_POST['t3'];
                                     $addr = $_POST['t4'];
+								// $exist = "select * from patient where patient_name='$pid' ";	
+								// $res = mysqli_query($conn,$exist);
+								// if(mysqli_num_rows($res) > 0){
+									// while($row = mysqli_fetch_assoc($res))
+										// echo "your have already entered the details of the name: ".$row["patient_name"];
+    
                                 $sqli = "insert into patientinfo(id,gmail,gender,mobile,age,address) values ('$pid','$gmail','$gender','$phone','$age','$addr')";
-                                    if(mysqli_query($conn,$sqli))
-                                    {
+									if(mysqli_query($conn,$sqli)){
+
 										echo "Successfully inserted";
 
                                     }
                                     
-								  
+								 
+								else{
+                                    echo "inserted values are wrong";
+                                }
+									//else{
+										//echo "error occured while inserting data".mysqli_error($conn);
+								//	}
+								//}
+                                    }	 
 							?>
 
 						
