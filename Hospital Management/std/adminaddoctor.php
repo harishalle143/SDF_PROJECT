@@ -52,7 +52,10 @@
 					
                     <br>
 						<table id="example1" class="table table-bordered table-striped">
-							<tr><th>Gender<th><input type="text" name="gender"/></th>
+							<tr><th>Select Gender<th>
+							<input type="radio" name="gender" value="male"> Male
+							<input type="radio" name="gender" value="female"> Female
+							<input type="radio" name="gender" value="other"> Other</th>
 							<th>Appointment Confirmation<th><input type="text" name="conf"/></th></tr>
 							<th>Token Number<th><input type="text" name="toke"/></th>
 							<th>Timings<th><input type="text" name="tym"/></th></tr>
