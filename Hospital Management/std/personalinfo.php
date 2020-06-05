@@ -53,7 +53,7 @@
 							</td>
                             </table>
                             </form>
-							<?php
+								<?php
 								if(isset($_POST["submit"])){ 
                                     $pid = $_SESSION['id'];
                                     $gmail = $_POST['t1'];
@@ -61,31 +61,20 @@
                                     $gender = $_POST['gender'];
                                     $phone = $_POST['t3'];
                                     $addr = $_POST['t4'];
-								// $exist = "select * from patient where patient_name='$pid' ";	
-								// $res = mysqli_query($conn,$exist);
-								// if(mysqli_num_rows($res) > 0){
-									// while($row = mysqli_fetch_assoc($res))
-										// echo "your have already entered the details of the name: ".$row["patient_name"];
-    
                                 $sqli = "insert into patientinfo(id,gmail,gender,mobile,age,address) values ('$pid','$gmail','$gender','$phone','$age','$addr')";
-									if(mysqli_query($conn,$sqli)){
-
+                                    if(mysqli_query($conn,$sqli))
+                                    {
 										echo "Successfully inserted";
 
                                     }
                                     
 								 
 								else{
-                                    echo "inserted values are wrong";
+                                    echo "Your Data is already inserted";
                                 }
-									//else{
-										//echo "error occured while inserting data".mysqli_error($conn);
-								//	}
-								//}
+
                                     }	 
 							?>
-
-						
 
 					</div>
                 
