@@ -66,12 +66,17 @@
 								$title=$_POST["t1"];
 								$change = $_POST["t2"];
                                 $doc = $_POST["t3"];
-                                $pid = $_SESSION["id"];
+								$pid = $_SESSION["id"];
+							
 								$sql = "update pid_reg set $title='$change' where Doctor='$doc' and pid ='$pid' ";
+								$sqli ="update patient set $title='$change' where patient_name='$pid' ";
 								if(mysqli_query($conn,$sql))
 									{	
+										if(mysqli_query($conn,$sqli))
+										{
 									echo "DETAILS UPDATED...";
 									}
+								}
 								 else{
 									 echo mysqli_error($conn);
 								 }

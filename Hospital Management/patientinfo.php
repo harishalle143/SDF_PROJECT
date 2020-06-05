@@ -58,7 +58,7 @@
 														<table id="example1" class="table table-bordered table-striped">
 															<tr><th>Patient_ Name<th>'.$row["patient_name"].'</th></tr>
 															<tr><th>Gender<th>'.$row["gender"].'</th></tr>
-															<tr><th>Appointment Status<th>'.$row["appointmentconfirmation"].'</th></tr>
+															<tr><th>Appointment Status<th>'.$row["status"].'</th></tr>
 															<tr><th>Token Nuber<th>'.$row["token"].'</th></tr>
 														    <tr><th>Timings<th>'.$row["Timings"].'</th></tr>
 														    <tr><th>Hospital Address<th>'.$row["hospital_address"].'</th></tr>	
